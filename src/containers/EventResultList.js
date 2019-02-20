@@ -1,3 +1,4 @@
+
 import { connect } from 'react-redux';
 import EventResultList from 'src/components/EventResultList';
 import { listInputChange, listData, listFormSubmit, tagListData } from 'src/store/reducers/list-reducer';

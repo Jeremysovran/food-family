@@ -16,8 +16,8 @@ import ajaxMiddleware from './ajaxMiddleware';
 const appliedMiddlewares = applyMiddleware(ajaxMiddleware);
 
 const devTools = [
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  window.REDUX_DEVTOOLS_EXTENSION ? window.REDUX_DEVTOOLS_EXTENSION() : f => f,
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  // window.REDUX_DEVTOOLS_EXTENSION ? window.REDUX_DEVTOOLS_EXTENSION() : f => f,
 ];
 
 const enhancers = compose(appliedMiddlewares, ...devTools);

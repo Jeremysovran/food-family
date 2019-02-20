@@ -7,6 +7,7 @@ const initialState = {
   inputTags: '',
   inputLevel: '',
   id: '',
+  user: '',
 };
 
 /**
@@ -27,44 +28,44 @@ const RECEIVE_FILTER_DATA = 'RECEIVE_FILTER_DATA';
 const listReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case LIST_INPUT_CHANGE:
-      console.log('list-reducer', action.modif);
+      // console.log('list-reducer', action.modif);
       return {
         ...state,
         ...action.modif,
       };
-      case LIST_FORM_SUBMIT:
-      console.log('list-reducer: list submit');
-        return {
-          ...state,
-        };
-      case LIST_DATA:
-       // console.log('fetch list event-reducer');
-       return {
-         ...state,
-         inputCity: '',
-         inputTags: '',
-         inputLevel: '',
-       };
-       case RECEIVE_LIST_DATA:
-       // console.log('fetch event-reducer');
-        return {
-          ...state,
-          ...action.data,
-          inputCity: '',
-          inputTags: '',
-          inputLevel: '',
-        };
-        case RECEIVE_FILTER_DATA:
-        console.log(action.datas);
-        return {
-          ...state,
-          ...action.data,
-        };
-        case TAG_LIST_DATA:
-        // console.log('fetch list event-reducer');
-        return {
-          ...state,
-        };
+    case LIST_FORM_SUBMIT:
+    // console.log('list-reducer: list submit');
+      return {
+        ...state,
+      };
+    case LIST_DATA:
+      // console.log('fetch list event-reducer');
+      return {
+        ...state,
+        inputCity: '',
+        inputTags: '',
+        inputLevel: '',
+      };
+    case RECEIVE_LIST_DATA:
+      // console.log('fetch event-reducer');
+      return {
+        ...state,
+        ...action.data,
+        inputCity: '',
+        inputTags: '',
+        inputLevel: '',
+      };
+    case RECEIVE_FILTER_DATA:
+      // console.log(action.datas);
+      return {
+        ...state,
+        ...action.data,
+      };
+    case TAG_LIST_DATA:
+      // console.log('fetch list event-reducer');
+      return {
+        ...state,
+      };
     default:
       return state;
   }

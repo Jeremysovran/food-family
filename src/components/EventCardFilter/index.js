@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Segment, Image, Card } from 'semantic-ui-react';
+import {
+  Grid, Segment, Image, Card,
+} from 'semantic-ui-react';
 import { FaCookieBite } from 'react-icons/fa';
 import { IoIosBody } from 'react-icons/io';
 import { NavLink } from 'react-router-dom';
@@ -14,21 +16,24 @@ const EventCardFilter = ({ cookingWorkshops }) => (
         {cookingWorkshops.map(workshop => (
           <Grid.Column key={workshop.slug}>
             <Segment>
-            <NavLink exact to={`/atelier/${cookingWorkshops.id}`}>
-              <Card fluid className="card">
-              <Card.Description className="cost"><span>{workshop.cost}</span><FaCookieBite /></Card.Description>
-                <Image src={workshop.picture} />
-                <Card.Content className="content">
-                  <div className="date">
-                    <span>{workshop.month}</span>
-                    <span>{workshop.day}</span>
-                  </div>
-                  <div>
-                    <Card.Header>{workshop.title}</Card.Header>
-                    <Card.Description>{workshop.nbParticipant}/{workshop.nbPlace}<IoIosBody /></Card.Description>
-                  </div>
-                </Card.Content>
-              </Card>
+              <NavLink exact to={`/atelier/${cookingWorkshops.id}`}>
+                <Card fluid className="card">
+                  <Card.Description className="cost"><span>{workshop.cost}</span><FaCookieBite /></Card.Description>
+                  <Image src={workshop.picture} />
+                  <Card.Content className="content">
+                    <div className="date">
+                      <span>{workshop.month}</span>
+                      <span>{workshop.day}</span>
+                    </div>
+                    <div>
+                      <Card.Header>{workshop.title}</Card.Header>
+                      <Card.Description>
+                        {workshop.nbParticipant}/{workshop.nbPlace}
+                        <IoIosBody />
+                      </Card.Description>
+                    </div>
+                  </Card.Content>
+                </Card>
               </NavLink>
             </Segment>
           </Grid.Column>
@@ -39,23 +44,26 @@ const EventCardFilter = ({ cookingWorkshops }) => (
         {cookingWorkshops.map(workshop => (
           <Grid.Column key={workshop.slug}>
             <Segment>
-            <NavLink exact to={`/atelier/${workshop.id}`}>
-              <Card fluid className="card">
-                <Card.Description className="cost"><span>{workshop.cost}</span><FaCookieBite /></Card.Description>
-                <Image src={workshop.picture} />
-                <Card.Content className="content">
-                  <div className="date">
-                    <span>{workshop.month}</span>
-                    <span>{workshop.day}</span>
-                  </div>
-                  <div>
-                    <Card.Header>{workshop.title}</Card.Header>
-                    <Card.Description>{workshop.nbParticipant}/{workshop.nbPlace}<IoIosBody /></Card.Description>
-                  </div>
+              <NavLink exact to={`/atelier/${workshop.id}`}>
+                <Card fluid className="card">
+                  <Card.Description className="cost"><span>{workshop.cost}</span><FaCookieBite /></Card.Description>
+                  <Image src={workshop.picture} />
+                  <Card.Content className="content">
+                    <div className="date">
+                      <span>{workshop.month}</span>
+                      <span>{workshop.day}</span>
+                    </div>
+                    <div>
+                      <Card.Header>{workshop.title}</Card.Header>
+                      <Card.Description>
+                        {workshop.nbParticipant}/{workshop.nbPlace}
+                        <IoIosBody />
+                      </Card.Description>
+                    </div>
                     <Card.Description>{workshop.city}</Card.Description>
-                </Card.Content>
-              </Card>
-            </NavLink>
+                  </Card.Content>
+                </Card>
+              </NavLink>
             </Segment>
           </Grid.Column>
         ))}

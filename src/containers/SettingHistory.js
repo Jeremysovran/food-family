@@ -6,14 +6,14 @@ const mapStateToProps = state => ({
   isAuthenticated: state.menu.isAuthenticated,
   modalOpened: state.menu.modalOpened,
   nbParticipatedCw: state.event.nbParticipatedCookingWorkshops,
-  participatedCw: state.event.participatedCookingWorkshops,
+  participatedCookingWorkshops: state.event.participatedCookingWorkshops,
   id: state.event.id,
 });
-  
+
 const mapDispatchToProps = dispatch => ({
   userHistory: (id) => {
     dispatch(userHistory(id));
-  }
+  },
 });
 
 const SettingHistoryContainer = connect(mapStateToProps, mapDispatchToProps)(SettingHistory);

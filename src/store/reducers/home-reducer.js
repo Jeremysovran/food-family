@@ -18,7 +18,7 @@ const initialState = {
   startDate: new Date(),
   loading: true,
   tags: [],
-  cookingWorkshopHasard: [],
+  cookingWorkshopHasard: {},
   lastCookingWorkshops: [],
   cookingWorkshops: [],
   file: {},
@@ -43,22 +43,22 @@ export const RECEIVE_HOME = 'RECEIVE_HOME';
 const homeReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case EVENT_INPUT_CHANGE:
-      console.log('home-reducer', action.modif);
+      // console.log('home-reducer', action.modif);
       return {
         ...state,
         ...action.modif,
       };
     case DATE_INPUT_CHANGE:
-      console.log('home-reducer', action.modif);
+      // console.log('home-reducer', action.modif);
       return {
         ...state,
         ...action.modif,
       };
     case FILE_UPLOAD_CHANGE:
-      console.log('home-reducer', action.modif);
+      // console.log('home-reducer', action.modif);
       return {
         ...state,
-        file: {...action.modif},
+        file: { ...action.modif },
       };
     case LOAD_HOME:
       return {

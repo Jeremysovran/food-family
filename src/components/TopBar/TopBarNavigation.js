@@ -1,7 +1,4 @@
 import React from "react";
-import CreateInNav from "src/components/CreateInNav";
-import Settings from "src/components/Settings";
-import { GiGingerbreadMan } from "react-icons/gi";
 import { FaRegUserCircle, FaCookieBite } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { Image, Popup, Button, Responsive } from "semantic-ui-react";
@@ -30,7 +27,7 @@ class TopBarNavigation extends React.Component {
     };
 
     const handleLogout = () => {
-      console.log("logout");
+    // console.log("logout");
       logoutSubmit();
     };
 
@@ -39,10 +36,7 @@ class TopBarNavigation extends React.Component {
         <NavLink exact to="/">
           <Image src="http://217.70.190.71/assets/tff-logo.png" size="medium" />
         </NavLink>
-        
-
-
-        {typeof user !== "undefined" ? (
+        {typeof user !== 'undefined' ? (
           <div className="account">
             <NavLink exact to={`/infos-perso/${user.id}`}>
               <div id="user">
@@ -79,12 +73,12 @@ class TopBarNavigation extends React.Component {
                 <Button onClick={handleOpenLogin} id="login">Se connecter pour créer un annonce
                 </Button>
               )}
-              </div>
-              <Button onClick={handleLogout} id="deco"><h2>Déconnexion</h2>
-                </Button>
+            </div>
+            <Button onClick={handleLogout} id="deco"><h2>Déconnexion</h2>
+            </Button>
 
           </div>
-          ) : ''}
+        ) : ''}
       </div>
     );
   }

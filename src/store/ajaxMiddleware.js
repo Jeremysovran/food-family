@@ -35,12 +35,12 @@ const ajaxMiddleware = store => next => (action) => {
           store.dispatch(receiveHomeData(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
-        next(action);
+      next(action);
       break;
 
-      case LOGIN_FORM_SUBMIT:
+    case LOGIN_FORM_SUBMIT:
       axios({
         method: 'POST',
         url: urlLogin,
@@ -51,25 +51,22 @@ const ajaxMiddleware = store => next => (action) => {
       })
         .then((result) => {
           const token = result.data.token;
-          console.log(result.data);
+          // console.log(result.data);
           localStorage.setItem('jwtToken', token);
           setAuthorizationToken(token);
-          // axios.get()
-          //.then(
-            store.dispatch(setCurrentUser(jwtDecode(token)));
+          store.dispatch(setCurrentUser(jwtDecode(token)));
 
-            //)
           axios.get(url)
             .then((result) => {
-              console.log(result.data);
+              // console.log(result.data);
               store.dispatch(receiveUserData(result.data));
             })
             .catch((error) => {
-              console.log(error);
+              // console.log(error);
             });
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
@@ -96,48 +93,48 @@ const ajaxMiddleware = store => next => (action) => {
         },
       })
         .then((result) => {
-          console.log('register mid. ', result);
+          // console.log('register mid. ', result);
           store.dispatch(receiveRegister(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
 
-      case USER_DATA:
+    case USER_DATA:
       axios({
-          url: `http://217.70.190.71:8080/api/users/${action.id}`,
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
-          },
-        })
+        url: `http://217.70.190.71:8080/api/users/${action.id}`,
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwtToken')}`,
+        },
+      })
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           store.dispatch(sendData(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
       // récupérer un atelier en particulier
-      case FETCH_DATA:
+    case FETCH_DATA:
       let keybearer = {};
-      console.log('localstorage', localStorage.getItem('jwtToken'));
+      // console.log('localstorage', localStorage.getItem('jwtToken'));
       if (localStorage.getItem('jwtToken')) {
-        console.log('test if');
+        // console.log('test if');
         keybearer = {
           url: `http://217.70.190.71:8080/api/cookingworkshops/${action.id}`,
           method: 'GET',
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+            Authorization: `Bearer ${localStorage.getItem('jwtToken')}`,
           },
         };
       }
       else {
-        console.log('test else');
+        // console.log('test else');
         keybearer = {
           url: `http://217.70.190.71:8080/api/cookingworkshops/${action.id}`,
           method: 'GET',
@@ -145,11 +142,11 @@ const ajaxMiddleware = store => next => (action) => {
       }
       axios(keybearer)
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           store.dispatch(sendData(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
@@ -160,11 +157,11 @@ const ajaxMiddleware = store => next => (action) => {
         url: `http://217.70.190.71:8080/api/cookingworkshops/${action.id}/toggle/${action.value}`,
       })
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           store.dispatch(sendReaction(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
@@ -178,11 +175,11 @@ const ajaxMiddleware = store => next => (action) => {
         },
       })
         .then((result) => {
-          console.log('register mid. ', result.data);
+          // console.log('register mid. ', result.data);
           store.dispatch(sendComment(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
@@ -195,10 +192,10 @@ const ajaxMiddleware = store => next => (action) => {
         },
       })
         .then((result) => {
-          console.log('register mid. ', result.data);
+          // console.log('register mid. ', result.data);
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
@@ -226,11 +223,11 @@ const ajaxMiddleware = store => next => (action) => {
         },
       })
         .then((result) => {
-          console.log('register mid. ', result);
+          // console.log('register mid. ', result);
           store.dispatch(receiveEventCreate(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
@@ -241,61 +238,61 @@ const ajaxMiddleware = store => next => (action) => {
         url: `http://217.70.190.71:8080/api/cookingworkshops/${state.event.id}/register`,
       })
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           store.dispatch(sendConfirmation(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
 
-      case LIST_DATA:
+    case LIST_DATA:
       // Je veux faire une requête axios
       axios.get(urlList)
         .then((result) => {
-           console.log(result.data);
+          // console.log(result.data);
 
           store.dispatch(receiveListData(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
 
-        next(action);
+      next(action);
       break;
 
-      case USER_EVENT:
+    case USER_EVENT:
       axios({
-          url: `http://217.70.190.71:8080/api/cookingworkshops/organizer/${action.id}`,
-          method: 'GET',
-        })
+        url: `http://217.70.190.71:8080/api/cookingworkshops/organizer/${action.id}`,
+        method: 'GET',
+      })
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           store.dispatch(sendData(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
 
-      case USER_HISTORY:
+    case USER_HISTORY:
       axios({
-          url: `http://217.70.190.71:8080/api/cookingworkshops/participant/${action.id}`,
-          method: 'GET',
-        })
+        url: `http://217.70.190.71:8080/api/cookingworkshops/participant/${action.id}`,
+        method: 'GET',
+      })
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           store.dispatch(sendData(result.data));
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
 
-      case USER_INFO_FORM_SUBMIT:
+    case USER_INFO_FORM_SUBMIT:
       axios({
         method: 'PUT',
         url: `http://217.70.190.71:8080/api/users/${action.id}`,
@@ -315,39 +312,39 @@ const ajaxMiddleware = store => next => (action) => {
         },
       })
         .then((result) => {
-          console.log('register mid. ', result);
+          // console.log('register mid. ', result);
           // todo send data
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
 
-      case LIST_FORM_SUBMIT:
-      console.log(state.list.user.city);
+    case LIST_FORM_SUBMIT:
+      // console.log(state.list.user.city);
       state.list.inputTags == '' ? 
-      axios({
+        axios({
         url: `http://217.70.190.71:8080/api/cookingworkshops/list/?city=${state.list.inputCity == '' ? state.list.user.city : state.list.inputCity}`,
         method: 'GET',
       }) 
       .then((result) => {
-        console.log(result.data);
-       store.dispatch(receiveFilterdData(result.data));
+        // console.log(result.data);
+        store.dispatch(receiveFilterdData(result.data));
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       })
       : axios({
           url: `http://217.70.190.71:8080/api/cookingworkshops/list/?city=${state.list.inputCity == '' ? state.list.user.city : state.list.inputCity}&level=${state.list.inputLevel == '' ? 2 : state.list.inputLevel}&tag=${state.list.inputTags}`,
           method: 'GET',
         })
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
         store.dispatch(receiveFilterdData(result.data));
       })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
@@ -358,75 +355,74 @@ const ajaxMiddleware = store => next => (action) => {
           url: `http://217.70.190.71:8080/api/users/${state.event.id}`,
         })
         .then((result) => {
-          console.log(result.data);
+          // console.log(result.data);
           localStorage.removeItem('jwtToken');
           setAuthorizationToken(false);
           store.dispatch(setCurrentUser({}));
 
           axios.get(url)
             .then((result) => {
-              console.log(result.data);
+              // console.log(result.data);
               store.dispatch(receiveUserData(result.data));
             })
             .catch((error) => {
-              console.log(error);
+              // console.log(error);
             });
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
       next(action);
       break;
 
-      case TAG_LIST_DATA:
+    case TAG_LIST_DATA:
       // Je veux faire une requête axios
-        axios({
-          url: `http://217.70.190.71:8080/api/cookingworkshops/list/?city=${state.home.user.city}tag=${action.id}`,
-          method: 'GET',
-        })
-          .then((result) => {
-            console.log(result.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-        next(action);
-      break;
-
-      case CONFIRMATION_FORM_DELETE_EVENT_SUBMIT:
-        axios({
-          method: 'DELETE',
-          url: `http://217.70.190.71:8080/api/cookingworkshops/${state.menu.idAtelier}`,
-        })
+      axios({
+        url: `http://217.70.190.71:8080/api/cookingworkshops/list/?city=${state.home.user.city}tag=${action.id}`,
+        method: 'GET',
+      })
         .then((result) => {
-          console.log(result.data);
-           store.dispatch(receiveEventDelete(result.data));
+          // console.log(result.data);
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
-        next(action);
+      next(action);
       break;
 
-      case LOGOUT_SUBMIT:
+    case CONFIRMATION_FORM_DELETE_EVENT_SUBMIT:
+      axios({
+        method: 'DELETE',
+        url: `http://217.70.190.71:8080/api/cookingworkshops/${state.menu.idAtelier}`,
+      })
+        .then((result) => {
+        // console.log(result.data);
+          store.dispatch(receiveEventDelete(result.data));
+        })
+        .catch((error) => {
+        // console.log(error);
+        });
+      next(action);
+      break;
 
-          localStorage.removeItem('jwtToken');
-          setAuthorizationToken(false);
-          store.dispatch(setCurrentUser({}));
+    case LOGOUT_SUBMIT:
 
-          axios.get(url)
-            .then((result) => {
-              console.log(result.data);
-              store.dispatch(receiveUserData(result.data));
-            })
-            .catch((error) => {
-              console.log(error);
-            });
+      localStorage.removeItem('jwtToken');
+      setAuthorizationToken(false);
+      store.dispatch(setCurrentUser({}));
+
+      axios.get(url)
+        .then((result) => {
+          // console.log(result.data);
+          store.dispatch(receiveUserData(result.data));
+        })
+        .catch((error) => {
+          // console.log(error);
+        });
 
       next(action);
       break;
-      
-      default:
+    default:
       next(action);
   }
 };

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal, Grid, Divider, Segment } from "semantic-ui-react";
+import {
+  Button, Grid, Divider,
+} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
 import './style.scss';
 
 class SettingHistory extends React.Component {
-
   componentDidMount() {
     const { userHistory } = this.props;
     const { id } = this.props.match.params;
@@ -15,7 +16,7 @@ class SettingHistory extends React.Component {
 
   render() {
     const {
-      isAuthenticated, modalOpenLogin, modalOpenConfirmation, nbParticipatedCw, participatedCw, id,
+      nbParticipatedCw, participatedCookingWorkshops, id,
     } = this.props;
 
     return (
@@ -24,7 +25,7 @@ class SettingHistory extends React.Component {
 
         <p>Vous avez participé à {nbParticipatedCw} ateliers, bravo !!</p>
 
-        <Divider/>
+        <Divider />
 
         <Grid columns={3} stackable className="liens">
           <Grid.Column textAlign="center">
@@ -40,19 +41,16 @@ class SettingHistory extends React.Component {
           </Grid.Column>
         </Grid>
 
-        <Grid columns={2} unstackable>
-          
-        {typeof participatedCw !== 'undefined'
-          ? participatedCw.map(cw => (
-          <Grid.Row verticalAlign="middle" className="annonce">
-            <Grid.Column textAlign="left">{cw.title}</Grid.Column>
-            <Grid.Column textAlign="right">
-              <Button basic ><NavLink exact to={`/atelier/${cw.id}`}>Voir</NavLink></Button>
-            </Grid.Column>
-          </Grid.Row>
-        )) : ''}
-          
-
+        <Grid columns={2} unstackable="true">
+          {typeof participatedCookingWorkshops !== 'undefined'
+            ? participatedCookingWorkshops.map(cw => (
+              <Grid.Row key={cw.id} verticalAlign="middle" className="annonce">
+                <Grid.Column textAlign="left">{cw.title}</Grid.Column>
+                <Grid.Column textAlign="right">
+                  <Button basic><NavLink exact to={`/atelier/${cw.id}`}>Voir</NavLink></Button>
+                </Grid.Column>
+              </Grid.Row>
+            )) : ''}
         </Grid>
 
         <Divider />
@@ -60,5 +58,17 @@ class SettingHistory extends React.Component {
     );
   }
 }
+
+SettingHistory.propTypes = {
+  participatedCookingWorkshops: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  nbParticipatedCw: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  userHistory: PropTypes.func.isRequired,
+};
 
 export default SettingHistory;

@@ -11,6 +11,11 @@ const initialState = {
   participate: '',
   longitude: false,
   latitude: false,
+  organizedCookingWorkshops: [],
+  nbOrganizedCookingWorkshops: 0,
+  id: 0,
+  participatedCookingWorkshops: [],
+
 };
 
 /**
@@ -45,87 +50,87 @@ export const USER_HISTORY = 'USER_HISTORY';
 const eventReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case COMMENT_INPUT_CHANGE:
-      console.log('event-reducer', action.modif);
+      // console.log('event-reducer', action.modif);
       return {
         ...state,
         ...action.modif,
       };
-      case COMMENT_INPUT_SUBMIT:
-      console.log('event-reducer submit');
+    case COMMENT_INPUT_SUBMIT:
+      // console.log('event-reducer submit');
       return {
         ...state,
         inputComment: '',
         newQuestion: '',
       };
-      case RESPONSE_INPUT_CHANGE:
-      console.log('event-reducer response', action.modif);
+    case RESPONSE_INPUT_CHANGE:
+      // console.log('event-reducer response', action.modif);
       return {
         ...state,
         ...action.modif,
       };
-      case RESPONSE_INPUT_SUBMIT:
-      console.log('event-reducer submit Response');
+    case RESPONSE_INPUT_SUBMIT:
+      // console.log('event-reducer submit Response');
       return {
         ...state,
         inputResponse: '',
       };
-      case FETCH_DATA:
-     // console.log('fetch event-reducer');
+    case FETCH_DATA:
+      // console.log('fetch event-reducer');
       return {
         ...state,
         userConfirm: '',
       };
-      case USER_DATA:
-     // console.log('fetch event-reducer');
+    case USER_DATA:
+      // console.log('fetch event-reducer');
       return {
         ...state,
       };
-      case SEND_DATA:
-       // console.log(action.datas);
-       return {
-         ...state,
-         ...action.datas,
-       };
-       case REACTION_SUBMIT:
-       console.log('event-reducer REACTION_SUBMIT');
-       return {
-         ...state,
-       };
-       case SEND_REACTION:
-        console.log(action.dataReaction);
-        return {
-          ...state,
-          feelings: action.dataReaction.newFeelings,
-        };
-        case RECEIVE_USER_DATA:
-        // console.log('fetch event-reducer');
-         return {
-           ...state,
-           ...action.data,
-         };
-         case SEND_COMMENT:
-         console.log('send comment', action.dataComment);
-         return {
-           ...state,
-           questionsCookingWorkshop: action.dataComment.questionsCookingWorkshop,
-         };
-         case SEND_CONFIRMATION:
-         console.log('send comment', action.dataConfirmation);
-         return {
-           ...state,
-           ...action.dataConfirmation.cookingWorkshop,
-           userConfirm: action.dataConfirmation.user,
-         };
-         case USER_EVENT:
-         // console.log('fetch event-reducer');
-          return {
-            ...state,
-          };
-         case USER_HISTORY:
-         // console.log('fetch event-reducer');
-          return {
-            ...state,
-          };
+    case SEND_DATA:
+      // console.log(action.datas);
+      return {
+        ...state,
+        ...action.datas,
+      };
+    case REACTION_SUBMIT:
+      // console.log('event-reducer REACTION_SUBMIT');
+      return {
+        ...state,
+      };
+    case SEND_REACTION:
+      // console.log(action.dataReaction);
+      return {
+        ...state,
+        feelings: action.dataReaction.newFeelings,
+      };
+    case RECEIVE_USER_DATA:
+      // console.log('fetch event-reducer');
+      return {
+        ...state,
+        ...action.data,
+      };
+    case SEND_COMMENT:
+      // console.log('send comment', action.dataComment);
+      return {
+        ...state,
+        questionsCookingWorkshop: action.dataComment.questionsCookingWorkshop,
+      };
+    case SEND_CONFIRMATION:
+      // console.log('send comment', action.dataConfirmation);
+      return {
+        ...state,
+        ...action.dataConfirmation.cookingWorkshop,
+        userConfirm: action.dataConfirmation.user,
+      };
+    case USER_EVENT:
+    // console.log('fetch event-reducer');
+      return {
+        ...state,
+      };
+    case USER_HISTORY:
+    // console.log('fetch event-reducer');
+      return {
+        ...state,
+      };
     default:
       return state;
   }

@@ -1,26 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
-  Grid,
-  Segment,
-  Image,
-  Card,
-  Progress,
-  Button,
-  Responsive
-} from "semantic-ui-react";
-import { IoIosBody } from "react-icons/io";
-import { FaCookieBite, FaCheck, FaAngleRight } from "react-icons/fa";
-import { MdPlace } from "react-icons/md";
-import { NavLink } from "react-router-dom";
-import "./style.scss";
+  Grid, Segment, Image, Card, Progress, Button, Responsive,
+} from 'semantic-ui-react';
+import { IoIosBody } from 'react-icons/io';
+import { FaCookieBite } from 'react-icons/fa';
+import { MdPlace } from 'react-icons/md';
+import { NavLink } from 'react-router-dom';
+import './style.scss';
 
 const EventWeekPopular = ({ cookingWorkshopHasard }) => {
-  const debutant = cookingWorkshopHasard.level === 1 ? "debutant" : "";
-  const moyen = cookingWorkshopHasard.level === 2 ? "moyen" : "";
-  const confirme = cookingWorkshopHasard.level === 3 ? "confirmé" : "";
-  const topChef = cookingWorkshopHasard.level === 4 ? "TopChef" : "";
+  const debutant = cookingWorkshopHasard.level === 1 ? 'debutant' : '';
+  const moyen = cookingWorkshopHasard.level === 2 ? 'moyen' : '';
+  const confirme = cookingWorkshopHasard.level === 3 ? 'confirmé' : '';
+  const topChef = cookingWorkshopHasard.level === 4 ? 'TopChef' : '';
 
   return (
     <div id="eventWeekPopular">
@@ -41,18 +34,17 @@ const EventWeekPopular = ({ cookingWorkshopHasard }) => {
                       </h3>
                     </div>
                     <div className="infoevent">
-                      {typeof cookingWorkshopHasard.tags !== "undefined"
+                      {typeof cookingWorkshopHasard.tags !== 'undefined'
                         ? cookingWorkshopHasard.tags.map(tag => (
-                            <span key={tag.id}>{tag.name}, </span>
-                          ))
-                        : ""}
+                          <span key={tag.id}>{tag.name}, </span>
+                        ))
+                        : ''}
                       <h2>{cookingWorkshopHasard.title}</h2>
                       <Card.Description>
                         <span>
-                          {typeof cookingWorkshopHasard.organizer !==
-                          "undefined"
+                          {typeof cookingWorkshopHasard.organizer !== 'undefined'
                             ? cookingWorkshopHasard.organizer.username
-                            : ""}
+                            : ''}
                         </span>
                       </Card.Description>
                     </div>
@@ -84,7 +76,7 @@ const EventWeekPopular = ({ cookingWorkshopHasard }) => {
                   />
                   <div className="cost">
                     <span id="nb">{cookingWorkshopHasard.cost}</span>
-                      <FaCookieBite/>
+                    <FaCookieBite />
                   </div>
                 </Card>
               </NavLink>
@@ -97,11 +89,11 @@ const EventWeekPopular = ({ cookingWorkshopHasard }) => {
                   <Card.Header>
                     <h3 className="date bold">
                       {cookingWorkshopHasard.day}
-                      {"\u00A0"}
+                      {'\u00A0'}
                       {cookingWorkshopHasard.month}
-                      {"\u00A0"}
-                      {"\u00A0"}
-                      {"\u00A0"}
+                      {'\u00A0'}
+                      {'\u00A0'}
+                      {'\u00A0'}
                     </h3>
                     <h2 className="title">{cookingWorkshopHasard.title}</h2>
                   </Card.Header>
@@ -121,24 +113,24 @@ const EventWeekPopular = ({ cookingWorkshopHasard }) => {
                   <Segment.Group horizontal>
                     <Segment>
                       <span>
-                        {" "}
+                        {' '}
                         <span className="bold">créé par </span>
                         <br />
-                        {typeof cookingWorkshopHasard.organizer !== "undefined"
+                        {typeof cookingWorkshopHasard.organizer !== 'undefined'
                           ? cookingWorkshopHasard.organizer.username
-                          : ""}
+                          : ''}
                       </span>
                     </Segment>
                     <Segment>
                       <span className="bold">Thématiques: </span>
                       <br />
-                      {typeof cookingWorkshopHasard.tags !== "undefined"
+                      {typeof cookingWorkshopHasard.tags !== 'undefined'
                         ? cookingWorkshopHasard.tags.map(tag => (
-                            <span key={tag.id} className="inline">
-                              {tag.name},{" "}
-                            </span>
-                          ))
-                        : ""}
+                          <span key={tag.id} className="inline">
+                            {tag.name},{' '}
+                          </span>
+                        ))
+                        : ''}
                     </Segment>
                   </Segment.Group>
 
@@ -152,7 +144,7 @@ const EventWeekPopular = ({ cookingWorkshopHasard }) => {
                         <Segment>
                           <span>
                             <MdPlace />
-                            {cookingWorkshopHasard.city}{" "}
+                            {cookingWorkshopHasard.city}{' '}
                             {cookingWorkshopHasard.postalCode}
                           </span>
                         </Segment>
@@ -183,6 +175,28 @@ const EventWeekPopular = ({ cookingWorkshopHasard }) => {
       </Grid>
     </div>
   );
+};
+
+EventWeekPopular.propTypes = {
+  cookingWorkshopHasard: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    month: PropTypes.string.isRequired,
+    day: PropTypes.string.isRequired,
+    postalCode: PropTypes.number.isRequired,
+    city: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired,
+      }).isRequired,
+    ).isRequired,
+    organizer: PropTypes.shape({
+      username: PropTypes.string.isRequired,
+    }).isRequired,
+    nbParticipant: PropTypes.number.isRequired,
+    nbPlace: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default EventWeekPopular;

@@ -1,21 +1,23 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal, Grid, Divider, Segment } from "semantic-ui-react";
+import {
+  Button, Grid, Divider, Segment,
+} from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 
-import "./style.scss";
+import './style.scss';
 
 class SettingEvent extends React.Component {
-
   componentDidMount() {
     const { userEvent } = this.props;
     const { id } = this.props.match.params;
+    // console.log('userevent', userEvent);
     userEvent(id);
   }
 
   render() {
     const {
-      modalOpenConfirmationDeleteEvent, nbOrganizedCw, organizedCw, id,
+      modalOpenConfirmationDeleteEvent, nbOrganizedCookingWorkshops, organizedCookingWorkshops, id,
     } = this.props;
 
 
@@ -24,24 +26,16 @@ class SettingEvent extends React.Component {
       const modif = {
         [name]: value,
       };
-      console.log('modif', modif);
+      // console.log('modif', modif);
       modalOpenConfirmationDeleteEvent(modif);
     };
-
-    // const handleOpenConfirmationDeleteEvent = (event) => {
-    //   const { id } = parseInt(event.target.getAttribute("cw-id"));
-    //   console.log(id);
-    //   // modalOpenConfirmationDeleteEvent();
-    // };
-
-
 
     return (
       <div id="settingEvent">
         <h1>Mes Ateliers</h1>
-        <p>Vous avez créé {nbOrganizedCw} ateliers, bravo !!</p>
+        <p>Vous avez créé {nbOrganizedCookingWorkshops} ateliers, bravo !!</p>
 
-        <Divider/>
+        <Divider />
 
         <Grid columns={3} stackable className="liens">
           <Grid.Column textAlign="center">
@@ -57,10 +51,10 @@ class SettingEvent extends React.Component {
           </Grid.Column>
         </Grid>
 
-        <Grid columns={4} unstackable>
+        <Grid columns={4} unstackable="true">
 
-          {typeof organizedCw !== 'undefined'
-            ? organizedCw.map(cw => (
+          {typeof organizedCookingWorkshops !== 'undefined'
+            ? organizedCookingWorkshops.map(cw => (
               <Grid.Row verticalAlign="middle" className="annonce">
 
                 <Grid.Column textAlign="left">{cw.title}</Grid.Column>
@@ -90,9 +84,21 @@ class SettingEvent extends React.Component {
 }
 
 SettingEvent.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-  // modalOpenLogin: PropTypes.func.isRequired,
-  // modalOpenConfirmation: PropTypes.func.isRequired,
+  organizedCookingWorkshops: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      tite: PropTypes.string.isRequired,
+      day: PropTypes.number.isRequired,
+      year: PropTypes.number.isRequired,
+      month: PropTypes.number.isRequired,
+      nbParticipant: PropTypes.number.isRequired,
+      nbPlace: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
+  nbOrganizedCookingWorkshops: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  modalOpenConfirmationDeleteEvent: PropTypes.func.isRequired,
+  userEvent: PropTypes.func.isRequired,
 };
 
 export default SettingEvent;

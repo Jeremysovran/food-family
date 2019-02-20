@@ -6,8 +6,8 @@ import { userEvent } from 'src/store/reducers/event-reducer';
 const mapStateToProps = state => ({
   isAuthenticated: state.menu.isAuthenticated,
   modalOpened: state.menu.modalOpened,
-  nbOrganizedCw: state.event.nbOrganizedCookingWorkshops,
-  organizedCw: state.event.organizedCookingWorkshops,
+  nbOrganizedCookingWorkshops: state.event.nbOrganizedCookingWorkshops,
+  organizedCookingWorkshops: state.event.organizedCookingWorkshops,
   id: state.event.id,
 });
 
