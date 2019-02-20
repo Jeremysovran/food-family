@@ -1,0 +1,210 @@
+#eventWeekPopular {
+  margin: 0 6rem;
+
+
+  .ui.grid>.row>.column{
+    padding-left:0;
+    padding-right:0;
+    border-radius: 0;
+  }
+
+  #desktop-btn {
+    align-items: center;
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    position: relative;
+    margin: 0 auto;
+  }
+
+    .btn {
+      background-color: #eee !important;
+      font-size: 1.2rem;
+      padding:0.6rem;
+    &:hover{
+      background-color: #ED434E !important;
+      color: white !important;
+    }
+  }
+  .ui.card, .imageComputer, .date-infoevent{
+    border-radius:0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom:0 !important;
+  }
+
+  .row{
+        border: solid 1px #eee !important;
+  }
+
+  .card:hover {
+   background-color: rgb(250, 250, 250);
+    .date-infoevent {
+      background-color: #ED434E;
+      color: white;
+    }
+  }
+  h1{
+   font-weight: 800;
+   margin-top:1em;
+   margin-bottom: 2rem;
+   font-size: 2rem;
+  }
+  .grid {
+    margin-bottom: 2rem;
+    
+  }
+ 
+
+  span {
+    font-size: 1.3rem;
+    line-height: 1.7rem;
+  }
+
+  .inline {
+    text-align: center;
+  }
+
+  #contenu {
+    padding: 0 2rem;
+  }
+
+  .progress {
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    .tablet {
+      display: none;
+    }
+  }
+
+
+  .progress,
+  .bar,
+  .columns {
+    border-radius: 0;
+  }
+
+  .label {
+    background-color: rgb(255, 250, 220);
+    margin-top: 0;
+  }
+
+  h1 {
+    display: block;
+  }
+
+  h2,
+  h3 {
+    display: inline;
+    font-size: 2.2rem;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  .segments {
+    border-color: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none;
+    position: relative;
+    margin-bottom: 0.8rem;
+
+  }
+
+  & .card {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  & .card-computer {
+    height: 300px;
+  }
+
+  & .date-infoevent {
+    background-color: #eee;
+    font-size: 2rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .button-weekpopular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header {
+    font-size: 2.2rem;
+    padding: 1rem;
+  }
+
+
+  .cost {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    display: flex;
+
+    
+    #nb{
+      text-shadow: 0 0 1rem black;
+font-size: 2.6rem;
+    font-weight: 800;
+    }
+    align-items: bottom;
+
+    font-weight: bold;
+    font-size: 2rem;
+    color: #fff;
+    & span {
+      margin-left: 0.3rem;
+    }
+  }
+
+  & .imageComputer {
+    height: 300px;
+    object-fit: cover;
+  }
+
+  & .content {
+    display: flex;
+  }
+
+  & .date {
+    flex-direction: column;
+    justify-content: center;
+
+    & span {
+      padding-right: 1rem;
+    }
+  }
+
+  & .meta {
+    margin-bottom: 0.5rem;
+  }
+
+  & .people,
+  .infoevent {
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  & .infoevent {
+    min-width: 50%;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+
+  }
+
+  & .icon {
+    font-size: 3rem;
+    align-self: center;
+
+  }
+
+ 
+
+}

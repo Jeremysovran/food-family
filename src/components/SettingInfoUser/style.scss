@@ -1,0 +1,75 @@
+#settingInfoUser{
+
+input{
+  border: transparent;
+  padding:0.5rem 2rem;
+}
+
+h1{
+  color: #ED434E;
+  padding-left: 0.4rem;
+  padding-bottom:0;
+  margin-top: 1rem;
+}
+
+button{
+  margin-left: 1rem;
+  margin-top: 1rem;
+  color: rgb(255, 254, 244);
+  background-color: #ED434E;
+}
+
+// .liens{
+//   margin-top: 2rem;
+// }
+
+.liens{
+  background-color: #ED434E;
+  color:white !important;
+}
+
+.liens a{
+  color:white !important;
+}
+
+// .liens a{
+//   border: 1px solid #ED434E;
+//   color:black !important;
+//   padding: 1rem;
+//   border-radius: 5px;
+// }
+
+.divider{
+  border: solid 0.5px #ED434E;
+}
+
+.avatar{
+  border: 1px solid #ED434E;
+  border-radius: 50%;
+}
+
+.infos{
+  margin: 3rem 10rem 0;
+  font-size: 1.2rem;
+}
+
+.infos-detail{
+  // margin: .7rem 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.infos-title{
+  font-weight: bold;
+}
+
+.lien-modifier{
+  margin: 4rem 0;
+}
+
+}
+
+#button-profil{
+  display:flex;
+  justify-content:center;
+  margin-bottom: 3em;
+}

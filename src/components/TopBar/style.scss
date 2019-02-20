@@ -1,0 +1,59 @@
+
+  #creer, #login, #deco{
+  background-color: transparent;
+  color:white;
+  padding:1rem;
+}
+
+.ui.grid > .row{
+  padding:0;
+}
+h2{
+  font-size: 1.2rem;
+  font-weight: 800 !important;
+}
+#topBar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+padding:0;
+vertical-align: center;
+height: 3.5rem;
+font-size: 1.8rem;
+margin: 1rem;
+  & .account{
+    display:flex;
+    align-items: center;
+  }
+  background-color: #ED434E ;
+  color: white;
+  a{
+    color: white;
+  }
+  &-create button, #logout{
+    background-color: #ED434E;
+    color: #fff;
+    font-weight: initial;
+    padding:0 0.5em;
+  }
+}
+
+#user {
+  padding:0 0.5em;
+  display: flex;
+  align-items: center;
+}
+#user span{
+padding-left: 0.5em;
+}
+
+#moneyAccount {
+  padding:0 0.5em;
+  display: flex;
+  align-items: center;
+}
+#moneyAccount span{
+padding-left: 0.5em;
+}
+

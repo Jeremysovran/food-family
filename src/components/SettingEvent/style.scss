@@ -1,0 +1,73 @@
+
+#settingEvent{
+
+    input{
+    border: transparent;  
+    }
+    h1{
+      color: #ED434E;
+      padding-left: 0.4rem;
+    }
+
+    .button{
+      box-shadow: none !important;
+      margin: 0 auto !important;
+      padding: 0.4rem
+    }
+
+    .column{
+      padding: 0.2rem;
+    }
+
+    .basic.button:hover{
+    color:white !important;
+    background-color:grey !important;
+    }
+
+    .ui.segment{
+          background: none !important;
+        }
+    
+    .segments{
+      box-shadow: none !important;
+      border:none !important;
+    }
+
+    span{
+      margin: 0 auto;
+    }
+
+    .atelier{
+      box-shadow: none !important;
+    }
+    
+    .annonce{
+      box-shadow: none;
+      padding:0;
+    }
+
+      .liens{
+        background-color: #ED434E;
+        color:white !important;
+      }
+      
+      .liens a{
+        color:white !important;
+      }
+    .row:hover{
+background-color: rgb(248, 248, 248);
+    }
+
+    .divider{
+      border: solid 0.5px #ED434E;
+    }
+
+    .annonce{
+      padding:0 2rem;
+      line-height: 0.8rem;
+
+
+    }
+
+  }
+  
