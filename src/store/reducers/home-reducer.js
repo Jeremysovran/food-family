@@ -21,7 +21,7 @@ const initialState = {
   cookingWorkshopHasard: {},
   lastCookingWorkshops: [],
   cookingWorkshops: [],
-  file: {},
+  fileSelected: null,
 };
 
 /**
@@ -55,10 +55,10 @@ const homeReducer = (state = initialState, action = {}) => {
         ...action.modif,
       };
     case FILE_UPLOAD_CHANGE:
-      // console.log('home-reducer', action.modif);
+       console.log('home-reducer', action.fileSelected);
       return {
         ...state,
-        file: { ...action.modif },
+        ...action.fileSelected,
       };
     case LOAD_HOME:
       return {
@@ -96,9 +96,9 @@ export const receiveHomeData = data => ({
   data,
 });
 
-export const fileUpload = modif => ({
+export const fileUpload = fileSelected => ({
   type: FILE_UPLOAD_CHANGE,
-  modif,
+  fileSelected,
 });
 /**
  * Selectors

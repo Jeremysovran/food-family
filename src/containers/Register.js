@@ -19,16 +19,14 @@ const mapStateToProps = state => ({
   postalCode: state.menu.postalCode,
   picture: state.menu.picture,
   modalRegisterOpen: state.menu.modalRegisterOpen,
-  birthdate: state.menu.birthdate,
 });
 
 const mapDispatchToProps = dispatch => ({
   registerInputChange: (modif) => {
     dispatch(registerInputChange(modif));
   },
-  registerFormSubmit: (username, password, firstname, lastname, email, birthdate, adress, city, confirmPassword, postalCode, picture) => {
-    console.log(confirmPassword);
-    dispatch(registerFormSubmit(username, password, firstname, lastname, email, birthdate, adress, city, confirmPassword, picture, postalCode, birthdate));
+  registerFormSubmit: (username, password, firstname, lastname, email, birthdate, adress, city, confirmPassword, postalCode, picture, year) => {
+    dispatch(registerFormSubmit(username, password, firstname, lastname, email, birthdate, adress, city, confirmPassword, picture, postalCode, year));
   },
 });
 

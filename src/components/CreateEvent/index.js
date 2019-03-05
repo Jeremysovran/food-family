@@ -11,22 +11,28 @@ import './style.scss';
 import { FaFileUpload } from 'react-icons/fa';
 
 
-const CreateEvent = ({
-  eventInputChange, eventFormSubmit, dateInputChange, fileUpload,
-  inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate,
-}) => {
-  const handleChange = (e, { name, value, checked }) => {
-    // const { name, value } = event.target;
+class CreateEvent extends React.Component {
+  state = { selectedFile: null }
+  
+  render() {
+  const { eventInputChange, eventFormSubmit, dateInputChange, fileUpload, file,
+  inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate } = this.props;
+
+  const handleChange = (e, { name, value }) => {
+
     const modif = {
-      [name]: value || checked,
+      [name]: value ,
     };
     console.log(modif);
     eventInputChange(modif);
   };
 
   const handleChangeFile = (e) => {
-  const file = e.target.files[0];
-  fileUpload(file);
+    this.setState({ selectedFile: e.target.files[0] })
+
+  //const fileSelected = e.target.files[0];
+  //console.log(fileSelected);
+  //fileUpload(fileSelected);
   };
 
   const handleSelect = (date) => {
@@ -39,7 +45,9 @@ const CreateEvent = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    eventFormSubmit(inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate);
+const fileSelected = this.state.selectedFile;
+  console.log(fileSelected);
+    eventFormSubmit(inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate, fileSelected);
   };
 
   const participant = [
@@ -70,7 +78,7 @@ const CreateEvent = ({
   ];
 
   const checkboxes = [
-    { name: 'sushis', value: '49', label: 'Sushis et makis' },
+    { name: 'sushis', value: 49, label: 'Sushis et makis' },
     { name: 'cocktail', value: '50', label: 'cocktail' },
     { name: 'pizza', value: '51', label: 'Pizza' },
     { name: 'cuisineBistrot', value: '52', label: 'Cuisine de bistrot' },
@@ -213,8 +221,9 @@ const CreateEvent = ({
         </Form>
       </Modal.Content>
     </div>
-  );
-};
+    );
+  }
+}
 
 CreateEvent.propTypes = {
   eventInputChange: PropTypes.func.isRequired,

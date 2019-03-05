@@ -1,28 +1,16 @@
-import React from "react";
-import classnames from "classnames";
-import PropTypes from "prop-types";
-import FormEvent from "src/containers/FormEvent";
-import GoogleMap from "src/containers/GoogleMap";
+import React from 'react';
+import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import FormEvent from 'src/containers/FormEvent';
+import GoogleMap from 'src/containers/GoogleMap';
 import {
-  Grid,
-  Segment,
-  Image,
-  Card,
-  Button,
-  Container,
-  Responsive
-} from "semantic-ui-react";
+  Grid, Segment, Image, Card, Button, Responsive,
+} from 'semantic-ui-react';
 import {
-  FaRegClock,
-  FaCookieBite,
-  FaCheck,
-  FaTimes,
-  FaFire,
-  FaRegUserCircle,
-  FaUsers
-} from "react-icons/fa";
-import { MdPlace } from "react-icons/md";
-import "./style.scss";
+  FaRegClock, FaCookieBite, FaCheck, FaTimes, FaFire, FaRegUserCircle, FaUsers,
+} from 'react-icons/fa';
+import { MdPlace } from 'react-icons/md';
+import './style.scss';
 
 class EventProductPage extends React.Component {
   componentDidMount() {
@@ -33,35 +21,10 @@ class EventProductPage extends React.Component {
 
   render() {
     const {
-      isAuthenticated,
-      modalOpenLogin,
-      modalOpenConfirmation,
-      city,
-      title,
-      handleReaction,
-      commentResponseFormSubmit,
-      date,
-      description,
-      postalCode,
-      cost,
-      level,
-      nbPlace,
-      nbParticipant,
-      isFull,
-      commentResponseInputChange,
-      tags,
-      organizer,
-      day,
-      month,
-      feelings,
-      questionsCookingWorkshop,
-      answersCookingWorkshop,
-      id,
-      inputResponse,
-      newQuestion,
-      picture,
-      modalOpenNoConfirmation,
-      participate
+      isAuthenticated, modalOpenLogin, modalOpenConfirmation, city, title, handleReaction, commentResponseFormSubmit,
+      date, description, postalCode, cost, level, nbPlace, nbParticipant, isFull, commentResponseInputChange,
+      tags, organizer, day, month, feelings, questionsCookingWorkshop, answersCookingWorkshop, id, inputResponse, newQuestion,
+      picture, modalOpenNoConfirmation,participate,
     } = this.props;
 
     const handleReactionButton = event => {
@@ -80,7 +43,7 @@ class EventProductPage extends React.Component {
     const handleOpenNoConfirmation = () => {
       modalOpenNoConfirmation();
     };
-
+    /*
     const handleChange = event => {
       const { name, value } = event.target;
       const modif = {
@@ -90,7 +53,7 @@ class EventProductPage extends React.Component {
       commentResponseInputChange(modif);
     };
 
-    /* const handleChangeResponse = (questionId) => {
+const handleChangeResponse = (questionId) => {
       
       return function (event){
         const responseText = event.target.value;
@@ -108,13 +71,13 @@ class EventProductPage extends React.Component {
         // questionATraiter.responses.push()
      // }
     //}
-*/
+
 
     const handleSubmit = event => {
       event.preventDefault();
       commentResponseFormSubmit();
     };
-
+*/
     const dateTime = new Date(date);
     const hour = dateTime.getHours();
     const min = dateTime.getMinutes();
@@ -140,9 +103,9 @@ class EventProductPage extends React.Component {
                   <div className="infoEvent">
                     <Card.Header>{title}</Card.Header>
                     <Card.Meta>Categories</Card.Meta>
-                    {typeof tags !== "undefined"
+                    {typeof tags !== 'undefined'
                       ? tags.map(tag => <span key={tag.id}>{tag.name}, </span>)
-                      : ""}
+                      : ''}
                   </div>
                 </Card.Content>
               </Segment>
@@ -152,8 +115,8 @@ class EventProductPage extends React.Component {
                 <div className="description-user">
                   <FaRegUserCircle />
                   <span>
-                    Organisé par{" "}
-                    {typeof organizer !== "undefined" ? organizer.username : ""}
+                    Organisé par
+                    {typeof organizer !== 'undefined' ? organizer.username : ''}
                   </span>
                 </div>
               </Segment>
@@ -213,7 +176,7 @@ class EventProductPage extends React.Component {
                             <div className="number">{feeling.count}</div>
                           </div>
                         ))
-                      : ""}
+                      : ''}
                   </div>
                 </div>
               </Segment>
@@ -234,15 +197,12 @@ class EventProductPage extends React.Component {
                   <div className="entete">
                     <h2>
                       {day}
-                      {"\u00A0"}
                       {month}
                     </h2>
-                    {"\u00A0 \u00A0 \u00A0 \u00A0"}
                     <h1>{title}</h1>
-                    {"\u00A0 \u00A0 \u00A0 \u00A0"}
-                    {typeof tags !== "undefined"
+                    {typeof tags !== 'undefined'
                       ? tags.map(tag => <h3 key={tag.id}>{tag.name}, </h3>)
-                      : ""}
+                      : ''}
                   </div>
                 </Card.Content>
               </Segment>
@@ -254,8 +214,8 @@ class EventProductPage extends React.Component {
                 <div className="description-user description-space">
                   <FaRegUserCircle />
                   <span>
-                    Organisé par{" "}
-                    {typeof organizer !== "undefined" ? organizer.username : ""}
+                    Organisé par
+                    {typeof organizer !== 'undefined' ? organizer.username : ''}
                   </span>
                 </div>
                 <div className="description-space">
@@ -296,7 +256,7 @@ class EventProductPage extends React.Component {
                       <Image src="http://217.70.190.71/assets/tff-picto-cookie.png" />
                     </span>
                   </div>
-                  {typeof tags !== "undefined" ? (
+                  {typeof tags !== 'undefined' ? (
                     isAuthenticated ? (
                       !participate ? (
                         <Button
@@ -315,33 +275,33 @@ class EventProductPage extends React.Component {
                         </Button>
                       )
                     ) : (
-                      ""
+                      ''
                     )
                   ) : (
-                    ""
+                    ''
                   )}
                 </div>
                 <div className="description-reaction">
-                  {typeof feelings !== "undefined"
+                  {typeof feelings !== 'undefined'
                     ? feelings.map(feeling => (
-                        <div
-                          className={classnames({
-                            blockReaction: true,
-                            jello: isAuthenticated
-                          })}
-                          key={feeling.id}
-                        >
-                          <button
-                            onClick={handleReactionButton}
-                            type="submit"
-                            name={feeling.name}
-                            value={feeling.id}
-                            className={feeling.name}
-                          />
-                          <div className="number">{feeling.count}</div>
-                        </div>
-                      ))
-                    : ""}
+                      <div
+                        className={classnames({
+                          blockReaction: true,
+                          jello: isAuthenticated,
+                        })}
+                        key={feeling.id}
+                      >
+                        <button
+                          onClick={handleReactionButton}
+                          type="submit"
+                          name={feeling.name}
+                          value={feeling.id}
+                          className={feeling.name}
+                        />
+                        <div className="number">{feeling.count}</div>
+                      </div>
+                    ))
+                    : ''}
                 </div>
               </Segment>
             </Grid.Column>
@@ -378,52 +338,52 @@ class EventProductPage extends React.Component {
             only="computer"
           >
             <Grid.Column>
-              {typeof questionsCookingWorkshop !== "undefined"
+              {typeof questionsCookingWorkshop !== 'undefined'
                 ? questionsCookingWorkshop.map(question => (
-                    <Segment key={question.id}>
-                      <div>
-                        <div className="author-question">
-                          {question.author}
-                          <span>{question.maj}</span>
-                        </div>
-                        <div>{question.description}</div>
-                        {/*
-                        <div className="answerCooking">
-                          {question.answersCookingWorkshop.description}
-                        </div>
-                        <Segment>
-                          <Form onSubmit={handleSubmit}>
-                            <Form.Input
-                              type="text"
-                              name={"answer"}
-                              placeholder="Exprimez-vous"
-                              value={inputResponse}
-                              // onChange={handleChangeResponse(question.id)}
-                            />
-                            <Button>Submit</Button>
-                          </Form>
-                        </Segment>
-                        */}
+                  <Segment key={question.id}>
+                    <div>
+                      <div className="author-question">
+                        {question.author}
+                        <span>{question.maj}</span>
                       </div>
-                    </Segment>
-                  ))
-                : ""}
+                      <div>{question.description}</div>
+                      {/*
+                      <div className="answerCooking">
+                        {question.answersCookingWorkshop.description}
+                      </div>
+                      <Segment>
+                        <Form onSubmit={handleSubmit}>
+                          <Form.Input
+                            type="text"
+                            name={"answer"}
+                            placeholder="Exprimez-vous"
+                            value={inputResponse}
+                            // onChange={handleChangeResponse(question.id)}
+                          />
+                          <Button>Submit</Button>
+                        </Form>
+                      </Segment>
+                      */}
+                    </div>
+                  </Segment>
+                ))
+                : ''}
             </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={1} only="tablet mobile">
             <Grid.Column>
-              {typeof questionsCookingWorkshop !== "undefined"
+              {typeof questionsCookingWorkshop !== 'undefined'
                 ? questionsCookingWorkshop.map(question => (
-                    <Segment key={question.id}>
-                      <div id="formEventMessageList">
-                        <div className="author-question">
-                          {question.author} <span>{question.maj}</span>
-                        </div>
-                        <div>{question.description}</div>
+                  <Segment key={question.id}>
+                    <div id="formEventMessageList">
+                      <div className="author-question">
+                        {question.author} <span>{question.maj}</span>
                       </div>
-                    </Segment>
-                  ))
-                : ""}
+                      <div>{question.description}</div>
+                    </div>
+                  </Segment>
+                ))
+                : ''}
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -435,7 +395,7 @@ class EventProductPage extends React.Component {
 EventProductPage.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   modalOpenLogin: PropTypes.func.isRequired,
-  modalOpenConfirmation: PropTypes.func.isRequired
+  modalOpenConfirmation: PropTypes.func.isRequired,
 };
 
 export default EventProductPage;

@@ -276,7 +276,6 @@ export const registerFormSubmit = (username, password, firstname, lastname, emai
   city,
   postalCode,
   picture,
-  birthdate,
 });
 
 export const modalOpenRegister = () => ({
@@ -296,7 +295,7 @@ export const modalClose = () => ({
 export const confirmationFormSubmit = () => ({
   type: CONFIRMATION_FORM_SUBMIT,
 });
-export const eventFormSubmit = (inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate, cost) => ({
+export const eventFormSubmit = (inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate, cost, fileSelected) => ({
   type: EVENT_INPUT_SUBMIT,
   inputAdress,
   inputCity,
@@ -305,6 +304,7 @@ export const eventFormSubmit = (inputAdress, inputCity, inputZip, inputDescripti
   inputTitle,
   startDate,
   cost,
+  fileSelected,
 
 });
 

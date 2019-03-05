@@ -85,7 +85,7 @@ const ajaxMiddleware = store => next => (action) => {
           address: action.adress,
           postalCode: action.postalCode,
           city: action.city,
-          birthdate: '1988-09-11',
+          birthdate: `${state.menu.year}-${state.menu.month}-${state.menu.day}`,
           picture: null,
         },
         headers: {
@@ -201,7 +201,7 @@ const ajaxMiddleware = store => next => (action) => {
       break;
 
       case EVENT_INPUT_SUBMIT:
-      
+
       axios({
         method: 'POST',
         url: urlCreateEvent,
@@ -212,7 +212,7 @@ const ajaxMiddleware = store => next => (action) => {
           postalCode: action.inputZip,
           city: action.inputCity,
           date: action.startDate,
-          picture: state.home.inputPhoto,
+          picture: action.fileSelected,
           cost: state.home.inputCookie,
           level: state.home.inputDifficulty,
           nbPlace: state.home.inputParticipant,
@@ -223,7 +223,7 @@ const ajaxMiddleware = store => next => (action) => {
         },
       })
         .then((result) => {
-          // console.log('register mid. ', result);
+           console.log('register mid. ', result);
           store.dispatch(receiveEventCreate(result.data));
         })
         .catch((error) => {

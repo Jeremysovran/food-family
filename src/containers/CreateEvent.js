@@ -28,11 +28,11 @@ const mapDispatchToProps = dispatch => ({
   dateInputChange: (modif) => {
     dispatch(dateInputChange(modif));
   },
-  fileUpload: (modif) => {
-    dispatch(fileUpload(modif));
+  fileUpload: (fileSelected) => {
+    dispatch(fileUpload(fileSelected));
   },
-  eventFormSubmit: (inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate, participant) => {
-    dispatch(eventFormSubmit(inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate, participant));
+  eventFormSubmit: (inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate, participant, fileSelected) => {
+    dispatch(eventFormSubmit(inputAdress, inputCity, inputZip, inputDescription, inputTitle, startDate, participant, fileSelected));
   },
 });
 
