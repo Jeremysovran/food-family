@@ -8,7 +8,7 @@ Projet de fin de formation realisé avec 2 autres étudiants. The Food Family es
 ### React
 - Centralisation des données : React-Redux
 - Routage : React-Router
-- Authentifcation : JWT-decode
+- Authentification : JWT-decode
 - Carte : Google-map-react 
 - Les appels API : Axios
 - Style UI : Semantic-UI
