@@ -15,11 +15,11 @@ Projet de fin de formation realisé avec 2 autres étudiants. The Food Family es
 
 ### Symfony
 
-- Authentifcation : Lexik JWT Token
+- Authentification : Lexik JWT Token
 - Interface avec la base de données : ORM Doctrine
 - Base de données : Myslq
 - Gestion de base de données : PhpMyAdmin
-- Gestion du preflight des requetes axios : Nelmio Cors bundle
+- Gestion du preflight : Nelmio Cors bundle
 - Generation de faux contenu : Faker
 - Api doc : Nelmio
 - Permet la génération et l’envoi d’email: Swiftmailer Bundle
